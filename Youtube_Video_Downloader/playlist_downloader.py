@@ -4,7 +4,8 @@ import re
 
 
 
-link = input("Please, Enter the Playlist link: ")
+#link = input("Please, Enter the Playlist link: ")
+link = "https://www.youtube.com/watch?v=djDcVWbEYoE&list=PLXLYwvNGGPoUzjKiGvuXm8qeiOYMnFria"
 
 yt_playlist = Playlist(link)
 path = "D:\git\Youtube_Video_Downloader\playlist"
