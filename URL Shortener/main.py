@@ -1,29 +1,34 @@
-import pyperclip 
-import pyshorteners 
-from tkinter import * 
-# from tkinter import Tk, StringVar
+from pyperclip import copy as pyperclip_copy
 
-root = Tk()
+from pyshorteners import Shortener as pyshorteners_Shortener
+
+from tkinter import Tk as tkinter_Tk
+from tkinter import StringVar as tkinter_StringVar
+from tkinter import Label as tkinter_Label
+from tkinter import Entry as tkinter_Entry 
+from tkinter import Button as tkinter_Button
+
+root = tkinter_Tk()
 root.geometry("400x200") 
 root.title("URL Sortener") 
 root.configure(bg="#262929") 
-url = StringVar()
-url_address = StringVar()
+url = tkinter_StringVar()
+url_address = tkinter_StringVar()
 
 def urlShortener() : 
     urladdress = url.get() 
-    url_short = pyshorteners.Shortener().tinyurl.short(urladdress) 
+    url_short = pyshorteners_Shortener().tinyurl.short(urladdress) 
     url_address.set(url_short) 
     
 def copyurl() : 
     url_short = url_address.get() 
-    pyperclip.copy(url_short) 
+    pyperclip_copy(url_short) 
     
 background = "#6f8171"
-Label(root, text="MY URL SHORTENER", font="poppins", background=background).pack(pady=10) 
-Entry(root, textvariable=url, background=background).pack(pady=5) 
-Button(root, text="Gentrate short URL", command=urlShortener, background=background).pack(pady=7) 
-Entry(root, textvariable=url_address, background=background).pack(pady=5) 
-Button(root, text="Copy URL", command=copyurl, background=background).pack(pady=5) 
+tkinter_Label(root, text="MY URL SHORTENER", font="poppins", background=background).pack(pady=10) 
+tkinter_Entry(root, textvariable=url, background=background).pack(pady=5) 
+tkinter_Button(root, text="Generate short URL", command=urlShortener, background=background).pack(pady=7) 
+tkinter_Entry(root, textvariable=url_address, background=background).pack(pady=5) 
+tkinter_Button(root, text="Copy URL", command=copyurl, background=background).pack(pady=5) 
 
 root.mainloop()
