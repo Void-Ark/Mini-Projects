@@ -9,4 +9,3 @@ required python libraries :
 - paperclip
 - pyshortener
 - tkinter
-
