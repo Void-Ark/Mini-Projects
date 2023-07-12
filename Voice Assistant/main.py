@@ -65,10 +65,13 @@ if __name__ == '__main__' :
             web_open("google.com") 
             
         elif "play music" in query: 
-            music_dir = "C:\\Users\\arksi\\Music"
+            music_dir = "C:\\Users\\arksi\\Music\\"
             songs = os_listdir(music_dir) 
-            print(songs) 
-            os_startfile(os_path.join(music_dir, songs[0]))
+            for song in songs : 
+                if song.endswith(".mp3") :
+                    path = os_path.join(music_dir, song)
+                    os_startfile(path)
+                    break
             
         elif "the time" in query : 
             strTime = datetime.now().strftime("%H:%M:%S") 
